@@ -1,18 +1,22 @@
 {
   "name": "es6-study",
   "version": "1.0.0",
+  "private": true,
   "description": "",
   "main": "webpack.config.js",
   "scripts": {
     "postinstall": "ln -s .pre-commit .git/hooks/pre-commit",
     "lint": "gulp lint",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "gulp test"
+  },
+  "engines": {
+    "node": "0.12.x"
   },
   "repository": {
     "type": "git",
     "url": "http://gitlab.pro/yuji/es6-study.git"
   },
-  "author": "",
+  "author": "leecade",
   "license": "ISC",
   "devDependencies": {
     "babel-core": "^5.8.23",

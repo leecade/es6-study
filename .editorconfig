@@ -7,11 +7,11 @@ insert_final_newline = true
 trim_trailing_whitespace = true
 indent_style = space
 
+[{**.js,**.css,.eslintrc,package.json}]
+indent_size = 2
+
 [*.md]
 trim_trailing_whitespace = false
-
-[{**.js,**.css,.eslintrc}]
-indent_size = 2
 
 [**.html]
 indent_size = 4

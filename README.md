@@ -104,7 +104,7 @@ test.test(); // "test"
     
     在项目根目录下创建 `.pre-commit`:
 
-    > 当待提交的 cached 文件命中 `.js$` 时触发 `npm run lint`
+    > 当待提交的 cached 文件命中 `.js$` 时触发 `lint`
 
     ```sh
     #!/bin/sh
@@ -193,3 +193,5 @@ test.test(); // "test"
     > 推荐兼容 ES2005 和 JSX 的 color scheme [Oceanic Next Color Scheme](https://github.com/voronianski/oceanic-next-color-scheme)
 
     ![image](https://cloud.githubusercontent.com/assets/533360/9658412/af3f1d6c-527b-11e5-8950-8ac29edd1fcd.png)
+
+7. 持续集成

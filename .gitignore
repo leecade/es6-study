@@ -2,5 +2,9 @@ node_modules
 .DS_Store
 *.orig
 *.log
-
+*.sublime-workspace
+.idea
+bower_components
+build
 coverage
+dist
