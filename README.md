@@ -28,7 +28,9 @@ test.test(); // "test"
 
 @TODO
 
-### 工具选型考虑 [jscs]() vs [eslint]()
+### 工具选型
+
+[jscs]() vs [eslint]()?
 
 @TODO
 
@@ -40,21 +42,21 @@ test.test(); // "test"
 
 1. 如何引入 ESLint
 
-    ```sh
-    npm install --save-dev eslint@latest
-    ```
+    > 最佳实践是本地安装 `eslint`, ([SublimeLinter-eslint](https://github.com/roadhump/SublimeLinter-eslint) 默认支持), 这样做的好处是不需要配置环境变量, 同时可以避免团队成员全局 `eslint` 版本不一致, 也不需要告诉团队成员还有其他依赖需要安装
 
-    最佳实践是本地安装 `eslint`, ([SublimeLinter-eslint](https://github.com/roadhump/SublimeLinter-eslint) 默认支持), 这样做的好处是不需要配置环境变量, 同时可以规避团队成员全局 `eslint` 版本不一致, 也不需要告诉团队成员还有其他依赖需要安装
+    ```sh
+    $ npm install --save-dev eslint@latest
+    ```
 
 2. 使 ESLint 支持 ES2015
 
-    同样为 ESLint 本地安装 babel 解析器 `babel-eslint`
+    同样为 ESLint 本地安装 babel 解析器 `babel-eslint`:
 
     ```sh
-    npm install --save-dev eslint@latest
+    $ npm install --save-dev eslint@latest
     ```
 
-    在 `.eslintrc` 中配置解析器
+    在 `.eslintrc` 中配置解析器:
 
     ```json
     {
@@ -62,7 +64,7 @@ test.test(); // "test"
     }
     ```
 
-    稍后可以在 `.eslintrc` 中添加更多的检查规则
+    > 稍后可以在 `.eslintrc` 中添加更多的检查规则
 
 3. `gulpfile.js` - gulp 配置
 
@@ -82,7 +84,9 @@ test.test(); // "test"
     })
     ```
 
-    我们可以创建了 `lint` 任务, 在执行 `gulp` 时会被触发
+    我们创建了 `lint` 任务, 在执行 `gulp` 时会被触发
+
+    ![image](https://cloud.githubusercontent.com/assets/533360/9658228/79b6f6ac-527a-11e5-8c64-ef9498a4e318.png)
 
 4. `package.json` - npm scripts 支持
 
@@ -96,11 +100,11 @@ test.test(); // "test"
 
 5. 如何保证所有团队成员提交的代码都是通过检查的
 
-    > 最佳实践是在 `git commit` 时进行检查, 如果不通过拒绝提交, 要完成这样的需求, 我们需要基于 git 配置 `pre-commit` hook, 为了将 `pre-commit` 抽离为项目配置, 在项目初始化时进行软链
+    > 最佳实践是在 `git commit` 时进行检查, 如果不通过拒绝提交(如果是 "1 warning" 不强制拒绝), 要完成这样的需求, 我们需要基于 git 配置 `pre-commit` hook, 基于 ESLint 执行检查, 为了将 `pre-commit` 抽离为项目配置, 在项目初始化时进行软链
     
-    在项目根目录下创建 `.pre-commit`
+    在项目根目录下创建 `.pre-commit`:
 
-    > 当待提交的 cached 文件中命中 `.js$` 时触发 `npm run lint`
+    > 当待提交的 cached 文件命中 `.js$` 时触发 `npm run lint`
 
     ```sh
     #!/bin/sh
@@ -112,9 +116,13 @@ test.test(); // "test"
     exit $?
     ```
 
-    然后 `chmod +x .pre-commit` 更改文件权限为可执行
+    然后更改文件权限为可执行:
+
+    ```sh
+    $ chmod +x .pre-commit
+    ```
     
-    添加 `package.json` 的安装脚本
+    添加 `package.json` 的安装时的软链行为:
 
     ```json
     "scripts": {
@@ -124,13 +132,15 @@ test.test(); // "test"
 
     这样任何团队成员在通过 `npm install` 完成项目初始化后, 都自动添加了 `git commit` 的检查 hook
 
+    ![image](https://cloud.githubusercontent.com/assets/533360/9658260/b8b75fc2-527a-11e5-9599-0092f3b22b4b.png)
+
 6. 编辑器支持(以 [Sublime Text 3](http://www.sublimetext.com/3) 为例, 对于其他编辑器 ESLint 都有广泛的插件支持)
 
     > 最佳实践是基于强大的 [SublimeLinter3](https://github.com/SublimeLinter/SublimeLinter3) 插件, 后续也可以一致性的进行 `html` 和 `css` 文件的检查
 
     通过 [Package Control](https://packagecontrol.io/installation) 安装 [SublimeLinter3](https://github.com/SublimeLinter/SublimeLinter3), [SublimeLinter-contrib-eslint](https://github.com/roadhump/SublimeLinter-eslint)
 
-    配置 SublimeLinter, 注册 `javascript (babel)` 类型为 `javascript`
+    配置 SublimeLinter, 注册 `javascript (babel)` 类型为 `javascript`:
 
     ```json
     "syntax_map": {
@@ -143,11 +153,13 @@ test.test(); // "test"
     }
     ```
 
-    推荐将 SublimeLinter 的 Lint Mode 设为 "load/save", 只在文件加载和保存时进行检查
+    推荐启用 SublimeLinter 的 "show error on save", 这样在保存时能自动检查并快速定位到不规范的代码
+
+    ![image](https://cloud.githubusercontent.com/assets/533360/9658353/484f8a6a-527b-11e5-8a6e-49d6b436779c.png)
 
     > 为了使编辑器更好的支持 ES2015 和 JSX 语法, 推荐安装 [Babel](https://github.com/babel/babel-sublime), 并且替换默认的 Javascript 语法包
     
-    修改 "Settings - User"
+    修改 "Settings - User":
 
     ```json
     "ignored_packages":
@@ -156,13 +168,13 @@ test.test(); // "test"
     ]
     ```
 
-    > 如果你是开发 React, 推荐集成 React 的 [lint 规则](https://github.com/yannickcr/eslint-plugin-react)
+    > 如果你是 React 的开发者, 推荐集成 React 的 [lint 规则](https://github.com/yannickcr/eslint-plugin-react)
 
     ```sh
-    npm install eslint-plugin-react --save-dev
+    $ npm install eslint-plugin-react --save-dev
     ```
 
-    在 `.eslintrc` 中配置使用插件
+    在 `.eslintrc` 中配置使用插件:
     
     ```json
     {
@@ -179,3 +191,5 @@ test.test(); // "test"
     ```
 
     > 推荐兼容 ES2005 和 JSX 的 color scheme [Oceanic Next Color Scheme](https://github.com/voronianski/oceanic-next-color-scheme)
+
+    ![image](https://cloud.githubusercontent.com/assets/533360/9658412/af3f1d6c-527b-11e5-8950-8ac29edd1fcd.png)
