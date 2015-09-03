@@ -1,5 +1,7 @@
 # ES2015 新的起航
 
+[![Circle CI](https://circleci.com/gh/leecade/es6-study.svg)](https://circleci.com/gh/leecade/es6-study)
+
 通过 [babel](https://babeljs.io/) 编译, ES2015 终于可以上生产环境, 而今年的 React 生态大热, 社区开始全面拥抱 ES2015.
 
 > https://babeljs.io/docs/learn-es2015/
