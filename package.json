@@ -5,7 +5,7 @@
   "description": "",
   "main": "webpack.config.js",
   "scripts": {
-    "postinstall": "ln -s .pre-commit .git/hooks/pre-commit",
+    "postinstall": "[ -d .git ] && ln -s .pre-commit .git/hooks/pre-commit || echo \"Not a git repository.\"",
     "lint": "gulp lint",
     "test": "gulp test"
   },
