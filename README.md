@@ -196,4 +196,37 @@ test.test(); // "test"
 
     ![image](https://cloud.githubusercontent.com/assets/533360/9658412/af3f1d6c-527b-11e5-8950-8ac29edd1fcd.png)
 
-7. 持续集成
+7. 支持持续集成平台
+
+    > 在团队成员提交代码或是提交代码合入申请时, 我们需要所有代码自动完成风格检查和测试任务以确保代码是可以被合入的, 推荐 [circle](https://circleci.com) 来替代 [travis](https://travis-ci.org/), 我们先基于 circle 来完成语法风格检查的配置
+
+    首先在 https://circleci.com 关联项目, 然后在项目根目录创建 `.circle.yml`:
+
+    ```yaml
+    machine:
+      node:
+        version: 0.10.33
+    ```
+
+    > 这里简单指定了测试所需的 `node` 版本, 如果没有指定默认会用 `0.10.33` 的版本进行测试
+    
+    通常 node 项目的生态系统中, 默认都通过执行 `npm test` 来进行测试, 我们也为此配置相应脚本:
+
+    ```json
+    "scripts": {
+      "test": "gulp test"
+    }
+    ```
+
+    接着创建 `gulp` 的 `test` 任务:
+
+    ```js
+    gulp.task('test', (done) => {
+        // do some test
+    })
+    ```
+
+    `git push` 提交后 circle 平台会自动开始测试任务, 任务结束后以邮件通知结果
+
+    
+
