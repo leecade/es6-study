@@ -1,4 +1,4 @@
-# ES2015 新的起航
+# ES2015 新的启航
 
 [![Circle CI](https://circleci.com/gh/leecade/es6-study.svg)](https://circleci.com/gh/leecade/es6-study)
 
