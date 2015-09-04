@@ -6,9 +6,11 @@
 
 较好的学习曲线: [ES2015](http://www.ecma-international.org/ecma-262/6.0/) => [babel](https://babeljs.io/) + [webpack](https://webpack.github.io/) => 重新思考[FP (函数式编程)](https://github.com/MostlyAdequate/mostly-adequate-guide) => [React](http://facebook.github.io/react/) => [Flux/Redux](https://github.com/rackt/redux) + [Immutable](https://facebook.github.io/immutable-js/) => [GraphQL](http://facebook.github.io/graphql/) + [Relay](https://facebook.github.io/relay/)
 
+-------
+
 ## 笔记章节导航
 
-- [ES2015 学习](#ES2015 学习)
+- [ES2015 学习](#es2015-学习)
     - [推荐学习资料](#推荐学习资料)
     - [目前生产环境应用情况](#目前生产环境应用情况)
     - [开发环境配置指南](#开发环境配置指南)
@@ -36,11 +38,11 @@
 
 - node(iojs)
 
-[默认启用了部分特性](https://iojs.org/zh/es6.html), 但实际应用还是需要 babel 编译
+默认启用了[部分特性](https://iojs.org/zh/es6.html), 但实际应用还是需要 babel 编译
 
 - 浏览器端
 
-早些时候 Google 推出了 [traceur](https://github.com/google/traceur-compiler) 编译器, 在 Chrome 上也是积极推动, 但想在浏览器跑原生 ES2015 代码还非常遥远, 但是!! 基于 babel 提供的浏览器端 runtime, 允许不经转换直接在浏览执行时处理:
+早些时候 Google 推出了 [traceur](https://github.com/google/traceur-compiler) 编译器, 在 Chrome 上也是积极推动, 但想在浏览器跑原生 ES2015 代码还非常遥远, 但是!! 基于 babel 提供的浏览器端 [runtime](https://babeljs.io/docs/usage/browser/), 允许不经转换直接在浏览执行时处理:
 
 ```html
 <script src="node_modules/babel-core/browser.js"></script>
@@ -56,7 +58,7 @@ test.test(); // "test"
 </script>
 ```
 
-> 在生产环境, 还是推荐使用 webpack 先离线编译, 目前兼容主流浏览器(ie9+), 如果要支持 IE8, 需要注意 [一些问题](http://babeljs.io/docs/advanced/caveats/)
+> 在生产环境, 还是推荐使用 [webpack](https://webpack.github.io/) 先离线编译, 目前兼容主流浏览器(ie9+), 如果要支持 IE8 需要注意 [一些问题](http://babeljs.io/docs/advanced/caveats/)
 
 ### 开发环境配置指南
 
