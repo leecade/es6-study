@@ -4,7 +4,11 @@
 
 > **ECMAScript 6** 于 **2015年6⽉18⽇** 正式 [定稿](http://www.ecma-international.org/ecma-262/6.0/ECMA-262.pdf), 发布更名为 **ES2015**, 基于 [babel](https://babeljs.io/) 编译, 终于可以进入生产环境, 而今年的 [React](http://facebook.github.io/react/) 生态大热, 社区开始全面拥抱 ES2015, 作为一个大龄前端码农, 越发感觉这个行业趋于成熟化, 又喜又忧, 不能再待在舒适区自诩经验丰富, 开始拥抱下一代技术栈, 共勉之
 
-较好的学习曲线: [ES2015](http://www.ecma-international.org/ecma-262/6.0/) => [babel](https://babeljs.io/) + [webpack](https://webpack.github.io/) => 重新思考[FP (函数式编程)](https://github.com/MostlyAdequate/mostly-adequate-guide) => [React](http://facebook.github.io/react/) => [Flux/Redux](https://github.com/rackt/redux) + [Immutable](https://facebook.github.io/immutable-js/) => [GraphQL](http://facebook.github.io/graphql/) + [Relay](https://facebook.github.io/relay/)
+-------
+
+> 较好的学习曲线:
+
+[ES2015](http://www.ecma-international.org/ecma-262/6.0/) -> [babel](https://babeljs.io/) + [webpack](https://webpack.github.io/) -> 重新思考[FP (函数式编程)](https://github.com/MostlyAdequate/mostly-adequate-guide) -> [React](http://facebook.github.io/react/) -> [Flux/Redux](https://github.com/rackt/redux) + [Immutable](https://facebook.github.io/immutable-js/) -> [GraphQL](http://facebook.github.io/graphql/) + [Relay](https://facebook.github.io/relay/)
 
 -------
 
