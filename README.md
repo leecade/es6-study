@@ -2,13 +2,45 @@
 
 [![Circle CI](https://circleci.com/gh/leecade/es6-study.svg)](https://circleci.com/gh/leecade/es6-study)
 
-通过 [babel](https://babeljs.io/) 编译, ES2015 终于可以上生产环境, 而今年的 React 生态大热, 社区开始全面拥抱 ES2015.
+> **ECMAScript 6** 于 **2015年6⽉18⽇** 正式 [定稿](http://www.ecma-international.org/ecma-262/6.0/ECMA-262.pdf), 发布更名为 **ES2015**, 基于 [babel](https://babeljs.io/) 编译, 终于可以进入生产环境, 而今年的 [React](http://facebook.github.io/react/) 生态大热, 社区开始全面拥抱 ES2015, 作为一个大龄前端码农, 越发感觉这个行业趋于成熟化, 又喜又忧, 不能再待在舒适区自诩经验丰富, 开始拥抱下一代技术栈, 共勉之
 
-> https://babeljs.io/docs/learn-es2015/
+较好的学习曲线: [ES2015](http://www.ecma-international.org/ecma-262/6.0/) => [babel](https://babeljs.io/) + [webpack](https://webpack.github.io/) => 重新思考[FP (函数式编程)](https://github.com/MostlyAdequate/mostly-adequate-guide) => [React](http://facebook.github.io/react/) => [Flux/Redux](https://github.com/rackt/redux) + [Immutable](https://facebook.github.io/immutable-js/) => [GraphQL](http://facebook.github.io/graphql/) + [Relay](https://facebook.github.io/relay/)
 
-> 目前兼容主流浏览器(ie9+), 如果要支持 IE8, 需要注意 [Object.defineProperty 只能用于 DOM](http://babeljs.io/docs/advanced/caveats/)
+## 笔记章节导航
 
-babel 同时提供了 ES2015 的浏览器 runtime, 允许不经转换直接在浏览执行时处理:
+- [ES2015 学习](#ES2015 学习)
+    - [推荐学习资料](#推荐学习资料)
+    - [目前生产环境应用情况](#目前生产环境应用情况)
+    - [开发环境配置指南](#开发环境配置指南)
+    - 测试指南
+- babel + webpack
+- 重新思考 FP (函数式编程)
+- React
+- Flux/Redux
+- Immutable
+- GraphQL + Relay
+
+## ES2015 学习
+
+### 推荐学习资料
+
+- [Overview of ECMAScript 6 features](https://github.com/lukehoban/es6features)
+
+新特性快速入门
+
+- [ECMAScript 6 入门](http://es6.ruanyifeng.com/)
+
+[阮一峰](http://www.ruanyifeng.com) 老师的中文入门指南, 平实易懂
+
+### 目前生产环境应用情况
+
+- node(iojs)
+
+[默认启用了部分特性](https://iojs.org/zh/es6.html), 但实际应用还是需要 babel 编译
+
+- 浏览器端
+
+早些时候 Google 推出了 [traceur](https://github.com/google/traceur-compiler) 编译器, 在 Chrome 上也是积极推动, 但想在浏览器跑原生 ES2015 代码还非常遥远, 但是!! 基于 babel 提供的浏览器端 runtime, 允许不经转换直接在浏览执行时处理:
 
 ```html
 <script src="node_modules/babel-core/browser.js"></script>
@@ -24,23 +56,9 @@ test.test(); // "test"
 </script>
 ```
 
-## 代码风格
+> 在生产环境, 还是推荐使用 webpack 先离线编译, 目前兼容主流浏览器(ie9+), 如果要支持 IE8, 需要注意 [一些问题](http://babeljs.io/docs/advanced/caveats/)
 
-### 规则制定
-
-@TODO
-
-### 工具选型
-
-[jscs]() vs [eslint]()?
-
-@TODO
-
-- with [JSCS-Formatter]() tool
-- Friendly with es6 / jsx
-- less config
-
-### 环境配置
+### 开发环境配置指南
 
 1. 如何引入 ESLint
 
