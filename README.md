@@ -90,22 +90,44 @@ test.test(); // "test"
     }
     ```
 
-    > 稍后可以在 `.eslintrc` 中添加更多的检查规则
+    > 稍后可以在 `.eslintrc` 中添加更多的检查规则, 如果你是 React 的开发者, 推荐集成 React 的 [lint 规则](https://github.com/yannickcr/eslint-plugin-react)
 
-3. `gulpfile.js` - gulp 配置
+    ```sh
+    $ npm install eslint-plugin-react --save-dev
+    ```
+
+    在 `.eslintrc` 中配置使用插件:
+    
+    ```json
+    {
+      "plugins": [
+        "react"
+      ],
+      "ecmaFeatures": {
+        "jsx": true
+      },
+      "rules": {
+        "react/jsx-boolean-value": 1
+      }
+    }
+    ```
+
+3. `gulpfile.babel.js` - gulp 配置
+
+    > `gulp` 已经支持 ES2015 的语法, 需要将配置文件改名为 `gulpfile.babel.js`
 
     ```js
-    var gulp = require('gulp')
-    var eslint = require('gulp-eslint')
+    import gulp from 'gulp'
+    import eslint from 'gulp-eslint'
 
-    gulp.task('lint', function () {
+    gulp.task('lint', () => {
       return gulp.src(['src/**/*.js', 'webpack.config.js', 'gulpfile.js'])
         .pipe(eslint())
         .pipe(eslint.format())
         .pipe(eslint.failOnError())
     })
 
-    gulp.task('default', ['lint'], function () {
+    gulp.task('default', ['lint'], () => {
 
     })
     ```
@@ -194,29 +216,7 @@ test.test(); // "test"
     ]
     ```
 
-    > 如果你是 React 的开发者, 推荐集成 React 的 [lint 规则](https://github.com/yannickcr/eslint-plugin-react)
-
-    ```sh
-    $ npm install eslint-plugin-react --save-dev
-    ```
-
-    在 `.eslintrc` 中配置使用插件:
-    
-    ```json
-    {
-      "plugins": [
-        "react"
-      ],
-      "ecmaFeatures": {
-        "jsx": true
-      },
-      "rules": {
-        "react/jsx-boolean-value": 1
-      }
-    }
-    ```
-
-    > 推荐兼容 ES2005 和 JSX 的 color scheme [Oceanic Next Color Scheme](https://github.com/voronianski/oceanic-next-color-scheme)
+    > 推荐兼容 ES2015 和 JSX 的 color scheme [Oceanic Next Color Scheme](https://github.com/voronianski/oceanic-next-color-scheme)
 
     ![image](https://cloud.githubusercontent.com/assets/533360/9658412/af3f1d6c-527b-11e5-8950-8ac29edd1fcd.png)
 
