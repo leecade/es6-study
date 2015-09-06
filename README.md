@@ -1,5 +1,7 @@
 # ES2015 新的启航
 
+[![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat)](https://github.com/feross/standard)
+
 [![Circle CI](https://circleci.com/gh/leecade/es6-study.svg)](https://circleci.com/gh/leecade/es6-study)
 
 > **ECMAScript 6** 于 **2015年6⽉18⽇** 正式 [定稿](http://www.ecma-international.org/ecma-262/6.0/ECMA-262.pdf), 发布更名为 **ES2015**, 基于 [babel](https://babeljs.io/) 编译, 终于可以进入生产环境, 而今年的 [React](http://facebook.github.io/react/) 生态大热, 社区开始全面拥抱 ES2015, 作为一个大龄前端码农, 越发感觉这个行业趋于成熟化, 又喜又忧, 不能再待在舒适区自诩经验丰富, 开始拥抱下一代技术栈, 共勉之
@@ -69,6 +71,52 @@ test.test(); // "test"
 > 注意到压缩后的 `browser.min.js` 仍然有 1.4MB, 所以在生产环境, 还是推荐使用 [webpack](https://webpack.github.io/) 先离线编译, 目前兼容主流浏览器(ie9+), 如果要支持 IE8 需要注意 [一些问题](http://babeljs.io/docs/advanced/caveats/)
 
 ### 开发环境配置指南
+
+> 更新: 彻底抛弃 ESLint, 拥抱 [standard](https://github.com/feross/standard), 终于解救了天秤座的纠结之心, 原谅我之前关于 ESLint 的折腾, 理由很充分:
+> 1. standard 的几条金律少而精, 全部命中我现在的 style, 基本是向后友好的流行风格, 官方坚决不给自定义配置的做法我非常欣赏, 适合大型团队统一风格
+> 2. 不折腾, 不需要各种配置, 使用相当简单, 配套的自动格式化工具也很成熟, 即使团队成员坚决不适应这套风格也没关系, 提交前自动格式化下好了
+> 3. 社区成熟度惊人, 拥趸很多, 编辑器 / 构建工具友好, JSX / ES2015 等下一代语言支持非常完善, 不像 ESLint 还得折腾半天
+
+1. 安装
+
+    npm:
+
+    ```sh
+    $ npm install standard@latest babel-eslint@latest --save-dev
+    ```
+
+    sublime:
+
+    - [SublimeLinter3](https://github.com/SublimeLinter/SublimeLinter3)
+    - [SublimeLinter-contrib-standard](https://github.com/Flet/SublimeLinter-contrib-standard)
+    - [standard-format](https://github.com/bcomnes/sublime-standard-format) 自动格式化工具
+
+2. 配置
+
+    恭喜你, 安装完成后在 **SublimeLinter3** 中启用 **standard** 即可
+
+    此外一些额外配置可以添加到 `package.json`:
+
+    ```json
+    "standard": {
+      "parser": "babel-eslint",
+      "global": [ "myVar1", "myVar2" ],
+      "ignore": [
+        "**/out/",
+        "/lib/select2/",
+        "/lib/ckeditor/",
+        "tmp.js"
+      ]
+    }
+    ```
+
+    - `parser` 推荐使用 `babel-eslint` 解析器
+    - `global` 忽略的全局变量
+    - `ignore` 忽略的文件或目录
+
+> 配置非常简单, 默认会包含 JSX 等 lint 规则, gulp 和 git commit 的支持可以参考 ESLint 的配置, 写完后我会移除掉代码里所有 ESLint 的支持, 有兴趣的可以翻看 git history
+
+----
 
 1. 如何引入 ESLint
 

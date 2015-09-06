@@ -1,9 +1,9 @@
 import path from 'path'
 import gulp from 'gulp'
 import gutil from 'gulp-util'
+import standard from 'gulp-standard'
 import webpack from 'webpack'
 import WebpackDevServer from 'webpack-dev-server'
-import eslint from 'gulp-eslint'
 import runSequence from 'run-sequence'
 import devConfig from './webpack/dev'
 import inject from 'gulp-inject-string'
@@ -23,10 +23,10 @@ const ports = {
   dev: 8080
 }
 
-const runEslint = () => {
+const runEslint = (opts = {}) => {
   return gulp.src(paths.lint)
-  .pipe(eslint())
-  .pipe(eslint.format())
+    .pipe(standard())
+    .pipe(standard.reporter('default', opts))
 }
 
 gulp.task('lint', () => {
@@ -36,7 +36,9 @@ gulp.task('lint', () => {
 gulp.task('lint-ci', () => {
 
   // Exit process with an error code (1) on lint error for CI build.
-  return runEslint().pipe(eslint.failAfterError())
+  return runEslint({
+    breakOnError: true
+  })
 })
 
 gulp.task('test', (done) => {

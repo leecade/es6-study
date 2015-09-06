@@ -1,7 +1,4 @@
 #!/bin/sh
-if git diff --cached --name-only --diff-filter=ACM | grep '.js$' >/dev/null 2>&1
-then
-    ./node_modules/.bin/gulp lint
-fi
-
+# Ensure all javascript files staged for commit pass standard code style
+git diff --name-only --cached --relative | grep '\.js$' | xargs ./node_modules/.bin/standard
 exit $?
