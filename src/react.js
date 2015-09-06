@@ -1,7 +1,9 @@
 import React from 'react'
 
-var Hello = React.createClass({
-  displayName: 'Hello',
+export default React.createClass({
+  propTypes: {
+    name: React.PropTypes.string.isRequired
+  },
   render: function () {
     return (
       <div>
