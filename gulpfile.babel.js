@@ -34,7 +34,6 @@ gulp.task('lint', () => {
 })
 
 gulp.task('lint-ci', () => {
-
   // Exit process with an error code (1) on lint error for CI build.
   return runEslint({
     breakOnError: true
@@ -42,7 +41,6 @@ gulp.task('lint-ci', () => {
 })
 
 gulp.task('test', (done) => {
-
   // Run a series of test tasks in order.
   runSequence('lint-ci', done)
 })
@@ -58,7 +56,6 @@ gulp.task('build', (done) => {
 })
 
 gulp.task('webpack-dev-inject', () => {
-
   // @TODO bundle.js path in deploy task
   const webpackHotInject = `
     <script src="http://localhost:${ports.dev}/webpack-dev-server.js"></script>

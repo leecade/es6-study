@@ -5,7 +5,7 @@
   "description": "",
   "main": "webpack.config.js",
   "scripts": {
-    "postinstall": "[ -d .git ] && mkdir -p .git/hooks && ln -s .pre-commit .git/hooks/pre-commit || echo \"Not a git repository.\"",
+    "postinstall": "[ -d .git ] && mkdir -p .git/hooks && ln -s .pre-commit .git/hooks/pre-commit || echo \"Add: git pre-commit hook failed.\"",
     "lint": "gulp lint",
     "test": "gulp test",
     "build": "gulp build",
@@ -38,7 +38,7 @@
     "npm": "^2.14.2",
     "run-sequence": "^1.1.2",
     "snazzy": "^2.0.1",
-    "standard": "^5.1.0",
+    "standard": "^5.2.1",
     "style-loader": "^0.12.3",
     "url-loader": "^0.5.6",
     "webpack": "^1.12.0",
