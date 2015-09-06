@@ -1,7 +1,7 @@
 import styles from './index.css'
 
-// var img = document.createElement('img');
-// img.src = require('./glyph.png');
+// var img = document.createElement('img')
+// img.src = require('./glyph.png')
 
 import avatar from './avatar.png'
 

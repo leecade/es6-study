@@ -13,7 +13,7 @@ export default {
   output: {
     path: path.join(paths.dist, 'webpack-example/js'),
     filename: 'bundle.js'
-    // publicPath: 'js/'
+  // publicPath: 'js/'
   },
   module: {
     loaders: [

@@ -1,4 +1,4 @@
 #!/bin/sh
 # Ensure all javascript files staged for commit pass standard code style
-git diff --name-only --cached --relative | grep '\.js$' | xargs ./node_modules/.bin/standard | ./node_modules/.bin/standard-tap
+git diff --name-only --cached --relative | grep '\.js$' | xargs ./node_modules/.bin/standard | ./node_modules/.bin/snazzy
 exit $?

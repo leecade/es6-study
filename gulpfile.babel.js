@@ -65,8 +65,8 @@ gulp.task('webpack-dev-inject', () => {
     <script src="bundle.js"></script>
   `
   return gulp.src(path.join(paths.src, 'webpack-example/index.html'))
-      .pipe(inject.after('</body>', webpackHotInject))
-      .pipe(gulp.dest(path.join(paths.dist, 'webpack-example')))
+    .pipe(inject.after('</body>', webpackHotInject))
+    .pipe(gulp.dest(path.join(paths.dist, 'webpack-example')))
 })
 
 gulp.task('dev', ['webpack-dev-inject'], (done) => {
@@ -85,8 +85,8 @@ gulp.task('dev', ['webpack-dev-inject'], (done) => {
     // Server listening
     gutil.log('[webpack-dev-server]', `http://localhost:${ports.dev}/webpack-dev-server/index.html`)
 
-    // keep the server alive or continue?
-    // done()
+  // keep the server alive or continue?
+  // done()
   })
 })
 
