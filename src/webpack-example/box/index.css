@@ -1,0 +1,11 @@
+.box {
+  background: #fff;
+  width: 10em;
+  height: 10em;
+  text-align: center;
+}
+
+.name{
+  font-size: 1.5em;
+  font-weight: bold;
+}

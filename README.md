@@ -8,7 +8,7 @@
 
 > 较好的学习曲线:
 
-[ES2015](http://www.ecma-international.org/ecma-262/6.0/) -> [babel](https://babeljs.io/) + [webpack](https://webpack.github.io/) -> 重新思考[FP (函数式编程)](https://github.com/MostlyAdequate/mostly-adequate-guide) -> [React](http://facebook.github.io/react/) -> [Flux/Redux](https://github.com/rackt/redux) + [Immutable](https://facebook.github.io/immutable-js/) -> [GraphQL](http://facebook.github.io/graphql/) + [Relay](https://facebook.github.io/relay/)
+[ES2015](http://www.ecma-international.org/ecma-262/6.0/) -> [babel](https://babeljs.io/) + [webpack](https://webpack.github.io/) -> [React](http://facebook.github.io/react/) -> 重新思考[FP (函数式编程)](https://github.com/MostlyAdequate/mostly-adequate-guide) -> [Flux/Redux](https://github.com/rackt/redux) + [Immutable](https://facebook.github.io/immutable-js/) + [flow](http://flowtype.org/) -> [GraphQL](http://facebook.github.io/graphql/) + [Relay](https://facebook.github.io/relay/)
 
 -------
 
@@ -20,10 +20,10 @@
     - [开发环境配置指南](#开发环境配置指南)
     - 测试指南
 - babel + webpack
-- 重新思考 FP (函数式编程)
 - React
+- 重新思考 FP (函数式编程)
 - Flux/Redux
-- Immutable
+- Immutable + flow
 - GraphQL + Relay
 
 ## ES2015 学习
@@ -37,6 +37,10 @@
 - [ECMAScript 6 入门](http://es6.ruanyifeng.com/)
 
 [阮一峰](http://www.ruanyifeng.com) 老师的中文入门指南, 平实易懂
+
+- [es6-2ality](http://www.2ality.com/search/label/esnext)
+
+更多 ES2015 特性的深入介绍
 
 ### 目前生产环境应用情况
 
@@ -62,7 +66,7 @@ test.test(); // "test"
 </script>
 ```
 
-> 在生产环境, 还是推荐使用 [webpack](https://webpack.github.io/) 先离线编译, 目前兼容主流浏览器(ie9+), 如果要支持 IE8 需要注意 [一些问题](http://babeljs.io/docs/advanced/caveats/)
+> 注意到压缩后的 `browser.min.js` 仍然有 1.4MB, 所以在生产环境, 还是推荐使用 [webpack](https://webpack.github.io/) 先离线编译, 目前兼容主流浏览器(ie9+), 如果要支持 IE8 需要注意 [一些问题](http://babeljs.io/docs/advanced/caveats/)
 
 ### 开发环境配置指南
 

@@ -2,15 +2,22 @@ var path = require('path')
 var webpack = require('webpack')
 
 module.exports = {
-  entry: './es6/main.js',
+  entry: ['webpack/hot/dev-server', './src/webpack-example/mod/index.js'],
   output: {
-    path: __dirname,
+    path: './src/webpack-example',
     filename: 'bundle.js'
   },
   module: {
     loaders: [
-        {test: path.join(__dirname, 'es6'), loader: 'babel-loader'},
-    ],
+      {
+        test: /\.css$/,
+        loader: 'style!css'
+      },
+      {
+        test: /\.js$/,
+        loader: 'babel-loader'
+      }
+    ]
   },
   plugins: [
     // Avoid publishing files when compilation failed
@@ -22,4 +29,8 @@ module.exports = {
   },
   // Create Sourcemaps for the bundle
   devtool: 'source-map',
+  resolve: {
+    // require('file') instead of require('file.coffee')
+    extensions: ['', '.js', '.json', '.coffee']
+  }
 }

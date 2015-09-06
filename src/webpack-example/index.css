@@ -1,0 +1,18 @@
+h1 {
+  font-size: 5em;
+  padding: .5em;
+  text-align: center;
+}
+
+.wrap {
+  background: #fff;
+  height: 20em;
+  border: 1px solid #ddd;
+  border-radius: .5em;
+  margin: 1em;
+
+  display: box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
