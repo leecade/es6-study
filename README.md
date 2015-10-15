@@ -42,6 +42,10 @@
 
 更多 ES2015 特性的深入介绍
 
+- [ECMAScript 6 — New Features: Overview & Comparison](http://es6-features.org)
+
+通过比较 ES2015 和 ES4 快速入门
+
 ### 目前生产环境应用情况
 
 - node(iojs)

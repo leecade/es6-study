@@ -35,7 +35,6 @@
     "install": "^0.1.8",
     "istanbul": "^0.3.19",
     "moment": "^2.10.6",
-    "npm": "^2.14.2",
     "run-sequence": "^1.1.2",
     "snazzy": "^2.0.1",
     "standard": "^5.2.1",
