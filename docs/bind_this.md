@@ -53,7 +53,8 @@ constructor(props) {
 
 ```jsx
 export default class button extends React.Component {
-  clickHandle = () => this.clickHandle()
+  clickHandle = () => {
+  }
 }
 ```
 
